@@ -4,8 +4,8 @@ echo "📦 Chromium Docker Installer (HTTPS)"
 echo "-------------------------------------"
 
 # 👉 Input user
-read -p "🔢 Masukkan port awal (harus ganjil, misal 3001): " START_PORT
 read -p "📦 Masukkan jumlah container yang ingin dibuat: " TOTAL
+read -p "🔢 Masukkan port awal (harus ganjil, misal 3001): " START_PORT
 
 # Cek validitas input
 if ! [[ "$START_PORT" =~ ^[0-9]+$ ]] || ! [[ "$TOTAL" =~ ^[0-9]+$ ]]; then
