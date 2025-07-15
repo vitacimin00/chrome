@@ -6,6 +6,7 @@ echo "-------------------------------------"
 # 👉 Input user
 read -p "📦 Masukkan jumlah container yang ingin dibuat: " TOTAL
 read -p "🔢 Masukkan port awal (harus ganjil, misal 3001): " START_PORT
+read -p "📝 Masukkan nama dasar container (contoh: chromium): " BASE_NAME
 
 # Cek validitas input
 if ! [[ "$START_PORT" =~ ^[0-9]+$ ]] || ! [[ "$TOTAL" =~ ^[0-9]+$ ]]; then
@@ -28,7 +29,7 @@ echo "🚀 Menjalankan $TOTAL container Chromium dari port $START_PORT..."
 # Loop buat container
 for i in $(seq 1 $TOTAL); do
   PORT_HTTPS=$((START_PORT + (i - 1) * 2))
-  CONTAINER_NAME="chromium-$i"
+  CONTAINER_NAME="${BASE_NAME}-${i}"
 
   echo "🧱 Membuat container $CONTAINER_NAME di port HTTPS $PORT_HTTPS..."
 
